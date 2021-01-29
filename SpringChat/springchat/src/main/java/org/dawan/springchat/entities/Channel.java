@@ -32,7 +32,8 @@ public class Channel {
 	@ManyToMany
 	private List<Theme> chanTheme ;
 	
-	
+	@OneToMany(mappedBy = "channel")
+	private List<Message> chanMessages;
 
 	public List<Theme> getChanTheme() {
 		return chanTheme;
@@ -68,8 +69,7 @@ public class Channel {
 		this.chanMessages = chanMessages;
 	}
 
-	@OneToMany(mappedBy = "channel")
-	private List<Message> chanMessages;
+	
 
 	public long getId() {
 		return id;
