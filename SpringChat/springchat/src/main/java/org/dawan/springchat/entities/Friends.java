@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Friends {
@@ -12,6 +13,12 @@ public class Friends {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@OneToOne
+	private User userId;
+	
+	@ManyToOne
+	private User friendUser;
 	
 	public Friends() {
 
@@ -39,6 +46,13 @@ public class Friends {
 		this.friendUser = friendUser;
 	}
 
-	@ManyToOne
-	private User friendUser;
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
+
+	
 }

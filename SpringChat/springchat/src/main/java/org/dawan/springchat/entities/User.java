@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -52,12 +53,15 @@ public class User {
 	@ManyToOne
 	private Channel userChannel ;
 	
+	@OneToOne(mappedBy = "userId")
+	private Friends userFriend;
+	
+	@OneToMany(mappedBy = "friendUser")
+	private List<Friends> friends;
+	
 	public User() {
 		
 	}
-
-	@OneToMany(mappedBy = "friendUser")
-	private List<Friends> friends;
 	
 	public User(long id, String name, String email, int age, String image, String sex, String ville, int departement,
 			boolean modo) {
@@ -175,6 +179,14 @@ public class User {
 
 	public void setModo(boolean modo) {
 		this.modo = modo;
+	}
+
+	public Friends getUserFriend() {
+		return userFriend;
+	}
+
+	public void setUserFriend(Friends userFriend) {
+		this.userFriend = userFriend;
 	}
 
 	@Override
