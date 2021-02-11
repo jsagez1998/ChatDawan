@@ -10,6 +10,15 @@ public class FriendsDto {
 	
 	private User friendUser;
 
+	public FriendsDto(long id) {
+		super();
+		this.id = id;
+	}
+
+	public FriendsDto() {
+		super();
+	}
+
 	public long getId() {
 		return id;
 	}
