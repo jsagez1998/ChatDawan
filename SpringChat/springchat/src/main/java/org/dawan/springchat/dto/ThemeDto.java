@@ -17,6 +17,17 @@ public class ThemeDto {
 	
 	private List<Channel> themeChannel;
 
+	public ThemeDto() {
+	}
+
+	public ThemeDto(long id, String name, String description, List<User> users) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.users = users;
+	}
+
 	public long getId() {
 		return id;
 	}

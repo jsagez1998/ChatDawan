@@ -20,6 +20,17 @@ public class ChannelDto {
 	
 	private List<Message> chanMessages;
 
+	public ChannelDto() {
+		super();
+	}
+
+	public ChannelDto(long id, String name, int nbPlace) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nbPlace = nbPlace;
+	}
+
 	public long getId() {
 		return id;
 	}

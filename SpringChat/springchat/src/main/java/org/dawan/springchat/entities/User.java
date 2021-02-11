@@ -59,12 +59,23 @@ public class User {
 	@OneToMany(mappedBy = "friendUser")
 	private List<Friends> friends;
 	
+	@Column(nullable = false)
+	private String password;
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public User() {
 		
 	}
 	
 	public User(long id, String name, String email, int age, String image, String sex, String ville, int departement,
-			boolean modo) {
+			boolean modo,String password) {
 		
 		this.id = id;
 		this.name = name;
@@ -75,6 +86,7 @@ public class User {
 		this.ville = ville;
 		this.departement = departement;
 		this.modo = modo;
+		this.password = password;
 	}
 
 	public Channel getUserChannel() {
@@ -194,5 +206,7 @@ public class User {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", age=" + age + ", image=" + image + ", sex="
 				+ sex + ", ville=" + ville + ", departement=" + departement + ", modo=" + modo + "]";
 	} 
+	
+	
 	
 }
