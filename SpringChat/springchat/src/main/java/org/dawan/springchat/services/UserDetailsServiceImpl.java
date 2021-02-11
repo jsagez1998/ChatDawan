@@ -16,7 +16,7 @@ public class UserDetailsServiceImpl implements MyUserDetailsService {
 		User user = userRepository.getUserByUsername(username);
 		
 		if (user == null) {
-			throw new UsernameNotFoundException("Utilisateur non trouvé")
+			throw new UsernameNotFoundException("Utilisateur non trouvé");
 		}
 		return null;
 	}
