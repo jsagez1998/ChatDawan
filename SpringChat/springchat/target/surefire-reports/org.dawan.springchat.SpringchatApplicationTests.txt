@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.dawan.springchat.SpringchatApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.45 s - in org.dawan.springchat.SpringchatApplicationTests
