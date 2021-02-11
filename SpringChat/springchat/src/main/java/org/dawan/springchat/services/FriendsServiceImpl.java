@@ -8,6 +8,7 @@ import org.dawan.springchat.dto.UserDto;
 import org.dawan.springchat.entities.Friends;
 import org.dawan.springchat.entities.User;
 import org.dawan.springchat.repositories.FriendsRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,9 +35,9 @@ public class FriendsServiceImpl implements FriendsService {
 	@Override
 	public FriendsDto saveFriend(FriendsDto fDto) {
 		ModelMapper m = new ModelMapper();
-		Friends c = m.map(fDto, User.class);
+		Friends c = m.map(fDto, Friends.class);
 		c = friendsRepository.saveAndFlush(c);
-		return m.map(c, UserDto.class);
+		return m.map(c, FriendsDto.class);
 	}
 
 	@Override

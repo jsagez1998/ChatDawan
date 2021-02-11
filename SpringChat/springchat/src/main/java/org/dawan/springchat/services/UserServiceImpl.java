@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.dawan.springchat.dto.UserDto;
 import org.dawan.springchat.entities.User;
 import org.dawan.springchat.repositories.UserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
