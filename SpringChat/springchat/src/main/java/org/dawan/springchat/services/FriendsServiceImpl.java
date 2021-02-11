@@ -6,7 +6,6 @@ import java.util.List;
 import org.dawan.springchat.dto.FriendsDto;
 import org.dawan.springchat.dto.UserDto;
 import org.dawan.springchat.entities.Friends;
-import org.dawan.springchat.entities.User;
 import org.dawan.springchat.repositories.FriendsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

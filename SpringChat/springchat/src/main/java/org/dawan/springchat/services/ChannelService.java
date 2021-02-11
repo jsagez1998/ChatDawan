@@ -14,5 +14,5 @@ public interface ChannelService {
 	
 	void deleteChannel(long id);
 	
-	List<ChannelDto> findChannetByTheme();
+	List<ChannelDto> findChannelByTheme(long themeId);
 }

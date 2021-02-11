@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.dawan.springchat.dto.ChannelDto;
-import org.dawan.springchat.dto.MessageDto;
 import org.dawan.springchat.dto.ThemeDto;
-import org.dawan.springchat.entities.Channel;
 import org.dawan.springchat.entities.Theme;
 import org.dawan.springchat.repositories.ThemeRepository;
 import org.modelmapper.ModelMapper;

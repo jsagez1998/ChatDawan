@@ -5,11 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.dawan.springchat.dto.ChannelDto;
-import org.dawan.springchat.dto.MessageDto;
-import org.dawan.springchat.dto.UserDto;
 import org.dawan.springchat.entities.Channel;
-import org.dawan.springchat.entities.Message;
-import org.dawan.springchat.entities.User;
 import org.dawan.springchat.repositories.ChannelRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +44,8 @@ public class ChannelServiceImpl implements ChannelService{
 	}
 
 	@Override
-	public List<ChannelDto> findChannetByTheme() {
-		List<Channel> lc = channelRepository.findByTheme();
+	public List<ChannelDto> findChannelByTheme(long themeId) {
+		List<Channel> lc = channelRepository.findByTheme(themeId);
 		List<ChannelDto> res = new ArrayList<ChannelDto>();
 		for (Channel c : lc) {
 			res.add(new ChannelDto(c.getId(), c.getName(),  c.getNbPlace()));
