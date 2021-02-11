@@ -37,6 +37,25 @@ public class UserDto {
 	
 	private List<Friends> friends;
 
+	
+	public UserDto() {
+		super();
+	}
+
+	public UserDto(long id, String name, String email, int age, String image, String sex, String ville, int departement,
+			boolean modo) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.age = age;
+		this.image = image;
+		this.sex = sex;
+		this.ville = ville;
+		this.departement = departement;
+		this.modo = modo;
+	}
+
 	public long getId() {
 		return id;
 	}

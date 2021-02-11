@@ -19,6 +19,19 @@ public class MessageDto {
 	
 	private Channel channel;
 
+	
+	
+	public MessageDto() {
+	}
+
+	public MessageDto(long id, String message, LocalDateTime date, String pieceJointe, User user) {
+		this.id = id;
+		this.message = message;
+		this.date = date;
+		this.pieceJointe = pieceJointe;
+		this.user = user;
+	}
+
 	public long getId() {
 		return id;
 	}
