@@ -12,13 +12,19 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	@Query(value = "FROM user u WHERE u.name = :name")
-    List<User> findAllByName(@Param("name") String searchedName);
+    List<User> findByName(@Param("name") String searchedName);
 	
 	@Query(value = "FROM user u WHERE u.id = :id")
     User findUserById(@Param("id") long id);
 	
 	@Query(value = "FROM user u WHERE u.email = :email")
     User findUserByEmail(@Param("email") String email);
+	
+	@Query(value = "FROM user u JOIN FETCH u.themes t WHERE t.id = :themeId")
+	List<User> findByTheme(@Param("themeId") String theme);
+
+	@Query(value = "FROM user u WHERE u.departement = :place")
+	List<User> findByPlace(@Param("place") String place);
 	
 	@Query("SELECT u FROM User u WHERE u.name = :name")
     User getUserByUsername(@Param("name") String name);
