@@ -13,15 +13,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
-	@Query(value = "FROM message m WHERE m.date = :date")
+	@Query(value = "FROM Message m WHERE m.date = :date")
     List<Message> findByDate(@Param("date") LocalDateTime date);
 	
-	@Query(value = "FROM message m WHERE m.id = :id")
+	@Query(value = "FROM Message m WHERE m.id = :id")
     Optional<Message> findById(@Param("id") long id);
 	
-	@Query(value = "FROM message m WHERE m.channel_id = :channelId")
+	@Query(value = "FROM Message m WHERE m.channel = :channelId")
 	List<Message> findByChannel(@Param("channelId") long channelId);
 	
-	@Query(value = "FROM message m WHERE m.user_id = :userId")
+	@Query(value = "FROM Message m WHERE m.user.id = :userId")
 	List<Message> findByUser(@Param("userId") long userId);
 }
