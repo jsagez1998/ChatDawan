@@ -1,6 +1,6 @@
 package org.dawan.springchat.repositories;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.dawan.springchat.entities.Theme;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Repository;
 public interface ThemeRepository extends JpaRepository<Theme, Long> {
 
 	@Query(value = "FROM theme t WHERE t.name = :name")
-    List<Theme> findAllByName(@Param("name") String searchedName);
+	Optional<Theme> findByName(@Param("name") String name);
 	
 	@Query(value = "FROM theme t WHERE t.id = :id")
-    Theme findThemeById(@Param("id") long id);
+	Optional<Theme> findById(@Param("id") long id);
 	
 }

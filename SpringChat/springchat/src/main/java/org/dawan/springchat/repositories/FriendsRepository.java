@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface FriendsRepository extends JpaRepository<Friends, Long> {
 
 	@Query(value = "FROM friends f WHERE f.user_id_id = :id")
-    List<Friends> findFriendsByUser_id_id(@Param("id") long id);
+    List<Friends> findByUserId(@Param("id") long id);
 }

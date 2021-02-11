@@ -17,4 +17,7 @@ public interface ChannelRepository extends JpaRepository<Channel, Long> {
 	
 	@Query(value = "FROM channel c WHERE c.id = :id")
     Channel findAllById(@Param("id") long id);
+	
+	@Query(value="FROM channel c JOIN FETCH c.themes t WHERE t.id = :themeId")
+	List<Channel> findByTheme(@Param("themeId") long themeId);
 }

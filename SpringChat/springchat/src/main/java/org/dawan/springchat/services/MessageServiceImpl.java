@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.dawan.springchat.dto.ChannelDto;
 import org.dawan.springchat.dto.MessageDto;
-import org.dawan.springchat.dto.UserDto;
-import org.dawan.springchat.entities.Channel;
 import org.dawan.springchat.entities.Message;
-import org.dawan.springchat.entities.User;
 import org.dawan.springchat.repositories.MessageRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +20,8 @@ public class MessageServiceImpl implements MessageService {
 	private MessageRepository messageRepository;
 	
 	@Override
-	public List<MessageDto> findByChannel() {
-		List<Message> lc = messageRepository.findByChannel();
+	public List<MessageDto> findByChannel(long channelId) {
+		List<Message> lc = messageRepository.findByChannel(channelId);
 		List<MessageDto> res = new ArrayList<MessageDto>();
 		for (Message c : lc) {
 			res.add(new MessageDto(c.getId(), c.getMessage(),  c.getDate(), c.getPieceJointe(), c.getUser()));
@@ -42,8 +38,8 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 	@Override
-	public List<MessageDto> findByUser() {
-		List<Message> lc = messageRepository.findByUser();
+	public List<MessageDto> findByUser(long userId) {
+		List<Message> lc = messageRepository.findByUser(userId);
 		List<MessageDto> res = new ArrayList<MessageDto>();
 		for (Message c : lc) {
 			res.add(new MessageDto(c.getId(), c.getMessage(),  c.getDate(), c.getPieceJointe(), c.getUser()));

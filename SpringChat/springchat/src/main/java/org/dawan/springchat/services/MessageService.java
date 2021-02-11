@@ -6,13 +6,13 @@ import org.dawan.springchat.dto.MessageDto;
 
 public interface MessageService {
 	
-	List<MessageDto> findByChannel();
+	List<MessageDto> findByChannel(long channelId);
 	
 	MessageDto findById(long id);
 	
 	MessageDto saveMessageDto(MessageDto mDto);
 	
-	List<MessageDto> findByUser();
+	List<MessageDto> findByUser(long userId);
 	
 	void deleteMessage(long id);
 }
