@@ -22,12 +22,12 @@ public class ThemeController {
 		return themeService.findAll();
 	}
 	
-	@GetMapping(value="/id", produces="application/json")
+	@GetMapping(value="/themeId/{id}", produces="application/json")
 	public ThemeDto getById(@PathVariable("id") long id) {
 		return themeService.findById(id);
 	}
 
-	@GetMapping(value="/theme", produces="application/json")
+	@GetMapping(value="/themeName/{name}", produces="application/json")
 	public ThemeDto getByName(@PathVariable("name") String name) {
 		return themeService.findByName(name);
 	}
