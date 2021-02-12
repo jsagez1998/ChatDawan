@@ -6,6 +6,7 @@ import org.dawan.springchat.dto.FriendsDto;
 import org.dawan.springchat.dto.UserDto;
 import org.dawan.springchat.services.FriendsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,9 +31,15 @@ public class FriendsController {
 		return friendsService.saveFriend(fDto);
 	}
 	
-	@GetMapping(value="/deleteFriend/{id}", produces = "appliction/json")
-	public void deleteFriendById(@PathVariable("id") long id) {
-		friendsService.deleteFriend(id);
+	@DeleteMapping(value="/deleteFriend/{id}", produces = "appliction/json")
+	public String deleteFriendById(@PathVariable("id") long id) {
+		try {
+			friendsService.deleteFriend(id);
+			return "Cet ami a bien été supprimé.";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return " Error : "+e.getMessage(); 
+		}
 	}
 	
 }
