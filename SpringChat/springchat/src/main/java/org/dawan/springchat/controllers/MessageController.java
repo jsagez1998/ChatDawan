@@ -17,17 +17,17 @@ public class MessageController {
 	@Autowired
 	MessageService messageService;
 	
-	@GetMapping(value="/channel", produces = "appliction/json")
+	@GetMapping(value="/channel/{channelId}", produces = "appliction/json")
 	public List<MessageDto> getMessagesByChannel(@PathVariable("channelId") long channelId) {
 		return messageService.findByChannel(channelId);
 	}
 	
-	@GetMapping(value="/user", produces = "appliction/json")
+	@GetMapping(value="/user/{userId}", produces = "appliction/json")
 	public List<MessageDto> getMessagesByUser(@PathVariable("userId") long userId) {
 		return messageService.findByUser(userId);
 	}
 	
-	@GetMapping(value="/message", produces = "appliction/json")
+	@GetMapping(value="/message/{id}", produces = "appliction/json")
 	public MessageDto getMessagesById(@PathVariable("id") long id) {
 		return messageService.findById(id);
 	}
@@ -37,7 +37,7 @@ public class MessageController {
 		return messageService.saveMessageDto(mDto);
 	}
 	
-	@GetMapping(value="/deleteMessage", produces = "appliction/json")
+	@GetMapping(value="/deleteMessage/{id}", produces = "appliction/json")
 	public void deleteMessagesById(@PathVariable("id") long id) {
 		messageService.deleteMessage(id);
 	}
