@@ -53,7 +53,7 @@ public class UserController {
 		return userService.findByPlace(place);
 	}
 	
-	@DeleteMapping(value="/{id",produces="text/plain")
+	@DeleteMapping(value="/{id}",produces="text/plain")
 	public String remove(@PathVariable("id")long id) {
 		try {
 			userService.deleteUser(id);
