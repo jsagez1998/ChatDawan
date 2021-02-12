@@ -7,6 +7,8 @@ import org.dawan.springchat.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,8 +34,8 @@ public class MessageController {
 		return messageService.findById(id);
 	}
 	
-	@GetMapping(value="/addmessage", produces = "appliction/json")
-	public MessageDto addMessage(MessageDto mDto) {
+	@PostMapping(value="/addmessage", produces = "appliction/json")
+	public MessageDto addMessage(@RequestBody MessageDto mDto) {
 		return messageService.saveMessageDto(mDto);
 	}
 	
