@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Friends {
 	
@@ -14,9 +16,11 @@ public class Friends {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@JsonBackReference
 	@OneToOne
 	private User userId;
 	
+	@JsonBackReference
 	@ManyToOne
 	private User friendUser;
 	

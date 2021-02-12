@@ -21,17 +21,17 @@ public class FriendsController {
 	@Autowired
 	FriendsService friendsService;
 	
-	@GetMapping(value="/myFriends/{userId}", produces = "appliction/json")
+	@GetMapping(value="/myFriends/{userId}", produces = "application/json")
 	public List<UserDto> getFriendsByUserId(@PathVariable("userId") int id) {
 		return friendsService.findByUserId(id);
 	}
 	
-	@PostMapping(value="/addFriend", produces = "appliction/json")
+	@PostMapping(value="/addFriend", produces = "application/json")
 	public FriendsDto addFriend(@RequestBody FriendsDto fDto) {
 		return friendsService.saveFriend(fDto);
 	}
 	
-	@DeleteMapping(value="/deleteFriend/{id}", produces = "appliction/json")
+	@DeleteMapping(value="/deleteFriend/{id}", produces = "application/json")
 	public String deleteFriendById(@PathVariable("id") long id) {
 		try {
 			friendsService.deleteFriend(id);

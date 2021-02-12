@@ -2,8 +2,10 @@ package org.dawan.springchat.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class User {
@@ -43,20 +48,25 @@ public class User {
 	@Column(nullable = false) // 0 = non 1 = oui
 	private boolean modo;
 	
-
-	@ManyToMany(mappedBy = "users")
+	@JsonManagedReference
+	@ManyToMany(mappedBy = "users", cascade= {CascadeType.MERGE}, fetch = FetchType.LAZY)
 	private List<Theme> themes;
 	
-	@OneToMany(mappedBy = "user")
+	@JsonBackReference
+	@JsonManagedReference
+	@OneToMany(mappedBy = "user", cascade= {CascadeType.MERGE}, fetch = FetchType.LAZY)
 	private List<Message> messages;
 	
+	@JsonManagedReference
 	@ManyToOne
 	private Channel userChannel ;
 	
+	@JsonManagedReference
 	@OneToOne(mappedBy = "userId")
 	private Friends userFriend;
 	
-	@OneToMany(mappedBy = "friendUser")
+	@JsonManagedReference
+	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
 	private List<Friends> friends;
 	
 	@Column(nullable = false)

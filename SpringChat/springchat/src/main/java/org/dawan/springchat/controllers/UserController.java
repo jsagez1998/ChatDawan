@@ -32,7 +32,7 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
-	@PostMapping(value="/addUser",consumes="application/json", produces = "appliction/json")
+	@PostMapping(value="/addUser",consumes="application/json", produces = "application/json")
 	public UserDto addUser(@RequestBody UserDto uDto) {
 		return userService.saveOrUpdate(uDto);
 	}
@@ -47,7 +47,7 @@ public class UserController {
 		return userService.findByTheme(theme);
 	}
 	
-	@GetMapping(value="/search",produces="application/json")
+	@GetMapping(value="/placeSearch",produces="application/json")
 	public List<UserDto> searchByPlace(@RequestParam(name = "place")String place){
 		return userService.findByPlace(place);
 	}
@@ -63,7 +63,7 @@ public class UserController {
 		}
 	}
 	
-	@PutMapping(value="/updateUser",consumes="application/json", produces = "appliction/json")
+	@PutMapping(value="/updateUser",consumes="application/json", produces = "application/json")
 	public UserDto updateUser(@RequestBody UserDto uDto) {
 		return userService.saveOrUpdate(uDto);
 	}

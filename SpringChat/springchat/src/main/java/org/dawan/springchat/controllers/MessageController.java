@@ -20,27 +20,27 @@ public class MessageController {
 	@Autowired
 	MessageService messageService;
 	
-	@GetMapping(value="/channel/{channelId}", produces = "appliction/json")
+	@GetMapping(value="/channel/{channelId}", produces = "application/json")
 	public List<MessageDto> getMessagesByChannel(@PathVariable("channelId") long channelId) {
 		return messageService.findByChannel(channelId);
 	}
 	
-	@GetMapping(value="/user/{userId}", produces = "appliction/json")
+	@GetMapping(value="/user/{userId}", produces = "application/json")
 	public List<MessageDto> getMessagesByUser(@PathVariable("userId") long userId) {
 		return messageService.findByUser(userId);
 	}
 	
-	@GetMapping(value="/message/{id}", produces = "appliction/json")
+	@GetMapping(value="/message/{id}", produces = "application/json")
 	public MessageDto getMessagesById(@PathVariable("id") long id) {
 		return messageService.findById(id);
 	}
 	
-	@PostMapping(value="/addmessage", produces = "appliction/json")
+	@PostMapping(value="/addmessage", produces = "application/json")
 	public MessageDto addMessage(@RequestBody MessageDto mDto) {
 		return messageService.saveMessageDto(mDto);
 	}
 	
-	@DeleteMapping(value="/deleteMessage/{id}", produces = "appliction/json")
+	@DeleteMapping(value="/deleteMessage/{id}", produces = "application/json")
 	public String deleteMessagesById(@PathVariable("id") long id) {
 		try {
 			messageService.deleteMessage(id);

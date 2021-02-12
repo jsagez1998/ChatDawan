@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Channel {
 
@@ -24,14 +26,15 @@ public class Channel {
 	@Column(nullable = false)
 	private int nbPlace;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy = "userChannel")
 	private List<User> chanUsers;
 	
-	// rajouter le theme 
-	
+	@JsonBackReference
 	@ManyToMany
 	private List<Theme> chanTheme ;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy = "channel")
 	private List<Message> chanMessages;
 
