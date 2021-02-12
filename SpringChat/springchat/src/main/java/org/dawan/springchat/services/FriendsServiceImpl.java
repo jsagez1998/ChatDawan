@@ -42,7 +42,6 @@ public class FriendsServiceImpl implements FriendsService {
 	@Override
 	public void deleteFriend(long id) {
 		friendsRepository.deleteById(id);
-		
 	}
 
 }

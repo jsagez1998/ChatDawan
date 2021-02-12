@@ -5,6 +5,7 @@ import java.util.List;
 import org.dawan.springchat.dto.MessageDto;
 import org.dawan.springchat.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,8 +40,14 @@ public class MessageController {
 		return messageService.saveMessageDto(mDto);
 	}
 	
-	@GetMapping(value="/deleteMessage/{id}", produces = "appliction/json")
-	public void deleteMessagesById(@PathVariable("id") long id) {
-		messageService.deleteMessage(id);
+	@DeleteMapping(value="/deleteMessage/{id}", produces = "appliction/json")
+	public String deleteMessagesById(@PathVariable("id") long id) {
+		try {
+			messageService.deleteMessage(id);
+			return "Le message a bien été supprimé";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "Erreur : "+e.getMessage();
+		}
 	}
 }

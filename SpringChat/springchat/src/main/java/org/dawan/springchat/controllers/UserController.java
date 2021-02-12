@@ -2,7 +2,6 @@ package org.dawan.springchat.controllers;
 
 import java.util.List;
 
-import org.dawan.springchat.dto.MessageDto;
 import org.dawan.springchat.dto.UserDto;
 import org.dawan.springchat.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +56,7 @@ public class UserController {
 	public String remove(@PathVariable("id")long id) {
 		try {
 			userService.deleteUser(id);
-			return "L'utilisateur a bien été supprimé";
+			return "L'utilisateur a bien ï¿½tï¿½ supprimï¿½";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "Erreur : "+e.getMessage();
