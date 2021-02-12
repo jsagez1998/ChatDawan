@@ -37,12 +37,12 @@ public class UserController {
 		return userService.saveOrUpdate(uDto);
 	}
 	
-	@GetMapping(value="/search",produces="application/json")
+	@GetMapping(value="/nameSearch",produces="application/json")
 	public List<UserDto> searchByName(@RequestParam(name = "name")String name){
 		return userService.findByName(name);
 	}
 	
-	@GetMapping(value="/search",produces="application/json")
+	@GetMapping(value="/themeSearch",produces="application/json")
 	public List<UserDto> searchByTheme(@RequestParam(name = "theme")String theme){
 		return userService.findByTheme(theme);
 	}

@@ -32,12 +32,12 @@ public class ChannelController {
 		return channelService.findById(id);
 	}
 	
-	@GetMapping(value="/search",produces="application/json")
+	@GetMapping(value="/nameSearch",produces="application/json")
 	public List<ChannelDto> searchByName(@RequestParam(name = "name")String name){
 		return channelService.findChannelByName(name);
 	}
 	
-	@GetMapping(value="/search",produces="application/json")
+	@GetMapping(value="/themeSearch",produces="application/json")
 	public List<ChannelDto> searchByTheme(@RequestParam(name = "id")long id){
 		return channelService.findChannelByTheme(id);
 	}
