@@ -20,8 +20,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Query(value = "FROM User u WHERE u.email = :email")
     User findUserByEmail(@Param("email") String email);
 	
-	@Query(value = "FROM User u JOIN FETCH u.themes t WHERE t.id = :themeId")
-	List<User> findByTheme(@Param("themeId") String theme);
+	@Query(value = "FROM User u JOIN FETCH u.themes t WHERE t.name = :themeName")
+	List<User> findByTheme(@Param("themeName") String theme);
 
 	@Query(value = "FROM User u WHERE u.departement = :place")
 	List<User> findByPlace(@Param("place") String place);
