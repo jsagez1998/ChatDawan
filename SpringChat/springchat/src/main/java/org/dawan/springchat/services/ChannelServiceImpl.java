@@ -63,4 +63,14 @@ public class ChannelServiceImpl implements ChannelService{
 			return null;
 	}
 
+	@Override
+	public List<ChannelDto> findChannelByName(String name) {
+		List<Channel> lc = channelRepository.findChannelByName(name);
+		List<ChannelDto> res = new ArrayList<ChannelDto>();
+		for (Channel c : lc) {
+			res.add(new ChannelDto(c.getId(), c.getName(),  c.getNbPlace()));
+		}
+		return res;
+	}
+
 }
