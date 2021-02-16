@@ -3,16 +3,17 @@ package org.dawan.springchat.authentication;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.dawan.springchat.entities.User;
+
+import org.dawan.springchat.entities.Users;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class MyUserDetails implements UserDetails {
 	
-	private User user;
+	private Users user;
 	
-	public MyUserDetails(User user) {
+	public MyUserDetails(Users user) {
 		this.user = user;
 	}
 	
@@ -23,12 +24,12 @@ public class MyUserDetails implements UserDetails {
 	 
 	    @Override
 	    public String getUsername() {
-	        return user.getName();
+	        return user.getUsername();
 	    }
 	    
 	    
-	    public boolean isModo() {
-	    	return user.isModo();
+	    public String getRole() {
+	    	return user.getRole();
 	    }
 	 
 	    @Override
@@ -52,13 +53,9 @@ public class MyUserDetails implements UserDetails {
 	    }
 
 		@Override
-		public Collection<? extends GrantedAuthority> getAuthorities() {
+	public Collection<? extends GrantedAuthority> getAuthorities() {
 			String role ;
-			if(user.isModo()) {
-				role = "MODO";
-			}else {
-				role = "USER";
-			}
+			role = user.getRole();
 			SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role);
 			return Arrays.asList(authority);
 		}

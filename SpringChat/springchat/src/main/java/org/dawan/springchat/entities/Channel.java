@@ -28,7 +28,7 @@ public class Channel {
 	
 	@JsonBackReference
 	@OneToMany(mappedBy = "userChannel")
-	private List<User> chanUsers;
+	private List<Users> chanUsers;
 	
 	@JsonBackReference
 	@ManyToMany
@@ -57,11 +57,11 @@ public class Channel {
 		this.nbPlace = nbPlace;
 	}
 
-	public void setChanUsers(List<User> chanUsers) {
+	public void setChanUsers(List<Users> chanUsers) {
 		this.chanUsers = chanUsers;
 	}
 
-	public List<User> getChanUsers() {
+	public List<Users> getChanUsers() {
 		return chanUsers;
 	}
 	public List<Message> getChanMessages() {

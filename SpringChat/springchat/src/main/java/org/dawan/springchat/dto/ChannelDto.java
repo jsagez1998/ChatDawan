@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.dawan.springchat.entities.Message;
 import org.dawan.springchat.entities.Theme;
-import org.dawan.springchat.entities.User;
+import org.dawan.springchat.entities.Users;
 
 public class ChannelDto {
 	
@@ -14,7 +14,7 @@ public class ChannelDto {
 	
 	private int nbPlace;
 	
-	private List<User> chanUsers;
+	private List<Users> chanUsers;
 	
 	private List<Theme> chanTheme;
 	
@@ -55,11 +55,11 @@ public class ChannelDto {
 		this.nbPlace = nbPlace;
 	}
 
-	public List<User> getChanUsers() {
+	public List<Users> getChanUsers() {
 		return chanUsers;
 	}
 
-	public void setChanUsers(List<User> chanUsers) {
+	public void setChanUsers(List<Users> chanUsers) {
 		this.chanUsers = chanUsers;
 	}
 

@@ -1,14 +1,14 @@
 package org.dawan.springchat.dto;
 
-import org.dawan.springchat.entities.User;
+import org.dawan.springchat.entities.Users;
 
 public class FriendsDto {
 	
 	private long id;
 	
-	private User userId;
+	private Users userId;
 	
-	private User friendUser;
+	private Users friendUser;
 
 	public FriendsDto(long id) {
 		super();
@@ -27,19 +27,19 @@ public class FriendsDto {
 		this.id = id;
 	}
 
-	public User getUserId() {
+	public Users getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(Users userId) {
 		this.userId = userId;
 	}
 
-	public User getFriendUser() {
+	public Users getFriendUser() {
 		return friendUser;
 	}
 
-	public void setFriendUser(User friendUser) {
+	public void setFriendUser(Users friendUser) {
 		this.friendUser = friendUser;
 	}
 	

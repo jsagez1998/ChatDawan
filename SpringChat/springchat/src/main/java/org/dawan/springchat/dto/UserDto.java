@@ -19,13 +19,13 @@ public class UserDto {
 	
 	private String image;
 	
-	private String sex;
+	private String sexe;
 	
 	private String ville ;
 	
 	private int departement ;
 	
-	private boolean modo; // 0 = false = non , 1 = true = oui
+	private String role; 
 	
 	private List<Theme> themes ;
 	
@@ -42,18 +42,18 @@ public class UserDto {
 		super();
 	}
 
-	public UserDto(long id, String name, String email, int age, String image, String sex, String ville, int departement,
-			boolean modo) {
+	public UserDto(long id, String name, String email, int age, String image, String sexe, String ville, int departement,
+			String role) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.age = age;
 		this.image = image;
-		this.sex = sex;
+		this.sexe = sexe;
 		this.ville = ville;
 		this.departement = departement;
-		this.modo = modo;
+		this.role = role;
 	}
 
 	public long getId() {
@@ -96,12 +96,12 @@ public class UserDto {
 		this.image = image;
 	}
 
-	public String getSex() {
-		return sex;
+	public String getSexe() {
+		return sexe;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
 	}
 
 	public String getVille() {
@@ -120,12 +120,12 @@ public class UserDto {
 		this.departement = departement;
 	}
 
-	public boolean isModo() {
-		return modo;
+	public String getRole() {
+		return role;
 	}
 
-	public void setModo(boolean modo) {
-		this.modo = modo;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public List<Theme> getThemes() {

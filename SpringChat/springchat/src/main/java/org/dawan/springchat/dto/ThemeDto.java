@@ -3,7 +3,7 @@ package org.dawan.springchat.dto;
 import java.util.List;
 
 import org.dawan.springchat.entities.Channel;
-import org.dawan.springchat.entities.User;
+import org.dawan.springchat.entities.Users;
 
 public class ThemeDto {
 	
@@ -13,14 +13,14 @@ public class ThemeDto {
 	
 	private String description;
 	
-	private List<User> users;
+	private List<Users> users;
 	
 	private List<Channel> themeChannel;
 
 	public ThemeDto() {
 	}
 
-	public ThemeDto(long id, String name, String description, List<User> users) {
+	public ThemeDto(long id, String name, String description, List<Users> users) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -52,11 +52,11 @@ public class ThemeDto {
 		this.description = description;
 	}
 
-	public List<User> getUsers() {
+	public List<Users> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<Users> users) {
 		this.users = users;
 	}
 

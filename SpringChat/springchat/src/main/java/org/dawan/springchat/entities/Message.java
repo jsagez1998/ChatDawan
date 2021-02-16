@@ -31,17 +31,17 @@ public class Message {
 	
 	@JsonBackReference
 	@ManyToOne
-	private User user;
+	private Users user;
 	
 	@JsonBackReference
 	@ManyToOne
 	private Channel channel;
 
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

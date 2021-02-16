@@ -27,7 +27,7 @@ public class Theme {
 	
 	@JsonBackReference
 	@ManyToMany
-	private List<User> users;
+	private List<Users> users;
 	
 	@JsonBackReference
 	@ManyToMany(mappedBy = "chanTheme")
@@ -78,11 +78,11 @@ public class Theme {
 		this.description = description;
 	}
 
-	public List<User> getUsers() {
+	public List<Users> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<Users> users) {
 		this.users = users;
 	}
 }

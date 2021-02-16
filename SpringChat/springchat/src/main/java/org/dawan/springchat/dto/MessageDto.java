@@ -3,7 +3,7 @@ package org.dawan.springchat.dto;
 import java.time.LocalDateTime;
 
 import org.dawan.springchat.entities.Channel;
-import org.dawan.springchat.entities.User;
+import org.dawan.springchat.entities.Users;
 
 public class MessageDto {
 	
@@ -15,7 +15,7 @@ public class MessageDto {
 	
 	private String pieceJointe;
 	
-	private User user;
+	private Users user;
 	
 	private Channel channel;
 
@@ -24,7 +24,7 @@ public class MessageDto {
 	public MessageDto() {
 	}
 
-	public MessageDto(long id, String message, LocalDateTime date, String pieceJointe, User user) {
+	public MessageDto(long id, String message, LocalDateTime date, String pieceJointe, Users user) {
 		this.id = id;
 		this.message = message;
 		this.date = date;
@@ -64,11 +64,11 @@ public class MessageDto {
 		this.pieceJointe = pieceJointe;
 	}
 
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

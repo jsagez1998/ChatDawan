@@ -18,14 +18,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-public class User {
+public class Users {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable = false, length = 255)
-	private String name;
+	private String username;
 	
 	@Column(nullable = false, length = 255)
 	private String email;
@@ -37,7 +37,7 @@ public class User {
 	private String image;
 	
 	@Column(nullable = false, length = 255)
-	private String sex;
+	private String sexe;
 	
 	@Column(nullable = false, length = 255)
 	private String ville ;
@@ -46,15 +46,15 @@ public class User {
 	private int departement ;
 	
 	@Column(nullable = false) // 0 = non 1 = oui
-	private boolean modo;
+	private String role;
 	
 	@JsonManagedReference
-	@ManyToMany(mappedBy = "users", cascade= {CascadeType.MERGE}, fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "users", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Theme> themes;
 	
 	@JsonBackReference
 	@JsonManagedReference
-	@OneToMany(mappedBy = "user", cascade= {CascadeType.MERGE}, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Message> messages;
 	
 	@JsonManagedReference
@@ -66,11 +66,14 @@ public class User {
 	private Friends userFriend;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Friends> friends;
 	
 	@Column(nullable = false)
 	private String password;
+	
+	@Column
+	private int enabled;
 	
 	public String getPassword() {
 		return password;
@@ -80,23 +83,24 @@ public class User {
 		this.password = password;
 	}
 
-	public User() {
+	public Users() {
 		
 	}
 	
-	public User(long id, String name, String email, int age, String image, String sex, String ville, int departement,
-			boolean modo,String password) {
+	public Users(long id, String username, String email, int age, String image, String sexe, String ville, int departement,
+			String role,String password,int enabled) {
 		
 		this.id = id;
-		this.name = name;
+		this.username= username;
 		this.email = email;
 		this.age = age;
 		this.image = image;
-		this.sex = sex;
+		this.sexe = sexe;
 		this.ville = ville;
 		this.departement = departement;
-		this.modo = modo;
+		this.role = role;
 		this.password = password;
+		this.enabled=enabled;
 	}
 
 	public Channel getUserChannel() {
@@ -139,12 +143,24 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getRole() {
+		return role;
 	}
 
 	public String getEmail() {
@@ -171,12 +187,12 @@ public class User {
 		this.image = image;
 	}
 
-	public String getSex() {
-		return sex;
+	public String getSexe() {
+		return sexe;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
 	}
 
 	public String getVille() {
@@ -195,13 +211,7 @@ public class User {
 		this.departement = departement;
 	}
 
-	public boolean isModo() {
-		return modo;
-	}
 
-	public void setModo(boolean modo) {
-		this.modo = modo;
-	}
 
 	public Friends getUserFriend() {
 		return userFriend;
@@ -213,8 +223,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", age=" + age + ", image=" + image + ", sex="
-				+ sex + ", ville=" + ville + ", departement=" + departement + ", modo=" + modo + "]";
+		return "User [id=" + id + ", name=" + username + ", email=" + email + ", age=" + age + ", image=" + image + ", sexe="
+				+ sexe + ", ville=" + ville + ", departement=" + departement + ", modo=" + role + "]";
 	} 
 	
 	

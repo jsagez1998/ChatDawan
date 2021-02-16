@@ -18,17 +18,17 @@ public class Friends {
 	
 	@JsonBackReference
 	@OneToOne
-	private User userId;
+	private Users userId;
 	
 	@JsonBackReference
 	@ManyToOne
-	private User friendUser;
+	private Users friendUser;
 	
 	public Friends() {
 
 	}
 
-	public Friends(long id, User friendUser) {
+	public Friends(long id, Users friendUser) {
 
 		this.id = id;
 		this.friendUser = friendUser;
@@ -42,19 +42,19 @@ public class Friends {
 		this.id = id;
 	}
 
-	public User getFriendUser() {
+	public Users getFriendUser() {
 		return friendUser;
 	}
 
-	public void setFriendUser(User friendUser) {
+	public void setFriendUser(Users friendUser) {
 		this.friendUser = friendUser;
 	}
 
-	public User getUserId() {
+	public Users getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(Users userId) {
 		this.userId = userId;
 	}
 
