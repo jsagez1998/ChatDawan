@@ -19,7 +19,7 @@ public class Friends {
 	private long id;
 	
 	@JsonBackReference
-	@OneToOne(mappedBy = "userFriend",orphanRemoval = true,cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@OneToOne(orphanRemoval = true,cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Users userId;
 	
 	@JsonBackReference
