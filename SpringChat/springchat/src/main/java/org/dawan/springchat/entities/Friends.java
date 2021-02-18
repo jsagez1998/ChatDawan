@@ -1,6 +1,8 @@
 package org.dawan.springchat.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,11 +19,11 @@ public class Friends {
 	private long id;
 	
 	@JsonBackReference
-	@OneToOne
+	@OneToOne(mappedBy = "userFriend",orphanRemoval = true,cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Users userId;
 	
 	@JsonBackReference
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Users friendUser;
 	
 	public Friends() {
