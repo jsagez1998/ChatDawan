@@ -62,9 +62,13 @@ public class Users {
 	private Channel userChannel ;
 	
 	@JsonManagedReference
-	@OneToOne(mappedBy = "userId",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Friends userFriend;
 	
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Friends> friends;
