@@ -5,14 +5,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<h1>Welcome!</h1>
-	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
-	<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+	<h3 th:inline="text">Welcome<b th:inline="text" id="name"> [[${#httpServletRequest.remoteUser}]] </b> </h3>
+	<p>Click <a th:href="@{/chat}">here</a> to see a greeting.</p>
 	
 	<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Logout" />
+    <button type="submit" value="Logout">logout</button>
 </form>
+
 </body>
 </html>

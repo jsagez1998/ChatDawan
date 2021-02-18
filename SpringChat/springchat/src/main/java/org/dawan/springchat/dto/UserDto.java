@@ -38,6 +38,26 @@ public class UserDto {
 	private List<Friends> friends;
 
 	
+	public UserDto(long id, String name, String email, int age, String image, String sexe, String ville,
+			int departement, String role, List<Theme> themes, List<Message> messages, Channel userChannel,
+			Friends userFriend, List<Friends> friends) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.age = age;
+		this.image = image;
+		this.sexe = sexe;
+		this.ville = ville;
+		this.departement = departement;
+		this.role = role;
+		this.themes = themes;
+		this.messages = messages;
+		this.userChannel = userChannel;
+		this.userFriend = userFriend;
+		this.friends = friends;
+	}
+
 	public UserDto() {
 		super();
 	}

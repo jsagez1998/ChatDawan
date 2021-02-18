@@ -28,7 +28,38 @@ public class Message {
 	@Column
 	private String pieceJointe;
 	
+	private MessageType type;
 	
+	private String username;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = this.user.getUsername() ;
+	}
+
+	public enum MessageType {
+		CHAT, LEAVE, JOIN
+	}
+	
+	public Message() {
+		
+	}
+	
+	public Message(String message, LocalDateTime date, String pieceJointe, MessageType type, Users user,
+			Channel channel) {
+		super();
+		this.message = message;
+		this.date = date;
+		this.pieceJointe = pieceJointe;
+		this.type = type;
+		this.user = user;
+		this.channel = channel;
+		this.username = this.user.getUsername();
+	}
+
 	@JsonBackReference
 	@ManyToOne
 	private Users user;
@@ -75,6 +106,14 @@ public class Message {
 
 	public void setPieceJointe(String pieceJointe) {
 		this.pieceJointe = pieceJointe;
+	}
+
+	public MessageType getType() {
+		return type;
+	}
+
+	public void setType(MessageType type) {
+		this.type = type;
 	}
 	
 	

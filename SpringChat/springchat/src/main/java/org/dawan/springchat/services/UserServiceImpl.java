@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService {
 		List<UserDto> res = new ArrayList<UserDto>();
 		for (Users c : lc) {
 			res.add(new UserDto(c.getId(), c.getUsername(), c.getEmail(), c.getAge(), c.getImage(), c.getSexe(), c.getVille(), c.getDepartement(),
-					c.getRole()));
+					c.getRole(),c.getThemes(),c.getMessages(),c.getUserChannel(),c.getUserFriend(),c.getFriends()));
 		}
 		return res;
 	}
