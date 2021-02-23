@@ -1,5 +1,6 @@
 package org.dawan.springchat.listener;
 
+import org.dawan.springchat.entities.ChatMessage;
 import org.dawan.springchat.entities.Message;
 import org.dawan.springchat.entities.Users;
 import org.slf4j.Logger;
@@ -33,11 +34,11 @@ public class WebSocketEventListener {
 		 if(username != null) {
 			 logger.info("USer disconnected"+username);
 			 
-			 Message chatMessage = new Message();
-			 chatMessage.setType(Message.MessageType.LEAVE);
-			 chatMessage.setUser((Users)headerAccessor.getUser());
+			 ChatMessage chatMessage = new ChatMessage();
+			 chatMessage.setType(ChatMessage.MessageType.LEAVE);
+			 chatMessage.setSender(username);
 			 
-			 messagingTemplate.convertAndSend("/topic/publicChatRoom",chatMessage);
+			 messagingTemplate.convertAndSend("/topic/public",chatMessage);
 		 }
 	 }
 }

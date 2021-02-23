@@ -1,5 +1,6 @@
 package org.dawan.springchat.controllers;
 
+import org.dawan.springchat.entities.ChatMessage;
 import org.dawan.springchat.entities.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -12,15 +13,15 @@ public class WebSocketController {
 	
 	
 	@MessageMapping("/chat.sendMessage")
-	@SendTo("/topic/publicChatRoom")
-	public Message sendMessage(@Payload Message chatMessage) {
+	@SendTo("/topic/public")
+	public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
 		return chatMessage;
 	}
 	
 	@MessageMapping("/chat.addUser")
-	@SendTo("/topic/publicChatRoom")
-	public Message addUser(@Payload Message chatMessage,SimpMessageHeaderAccessor headerAccessor) {
-		headerAccessor.getSessionAttributes().put("username", chatMessage.getUser().getUsername());
+	@SendTo("/topic/public")
+	public ChatMessage addUser(@Payload ChatMessage chatMessage,SimpMessageHeaderAccessor headerAccessor) {
+		headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
 		return chatMessage;
 	}
 }
