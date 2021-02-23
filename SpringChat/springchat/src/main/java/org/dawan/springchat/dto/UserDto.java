@@ -1,5 +1,6 @@
 package org.dawan.springchat.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.dawan.springchat.entities.Channel;
@@ -7,11 +8,11 @@ import org.dawan.springchat.entities.Friends;
 import org.dawan.springchat.entities.Message;
 import org.dawan.springchat.entities.Theme;
 
-public class UserDto {
+public class UserDto implements Serializable{
 	
 	private long id ;
 	
-	private String name;
+	private String username;
 	
 	private String email;
 	
@@ -27,6 +28,8 @@ public class UserDto {
 	
 	private String role; 
 	
+	private String password;
+	
 	private List<Theme> themes ;
 	
 	private List<Message> messages;
@@ -38,12 +41,27 @@ public class UserDto {
 	private List<Friends> friends;
 
 	
+	
+
+	public UserDto(String name, String email, int age, String image, String sexe, String ville, int departement,
+			String password) {
+		super();
+		this.username = name;
+		this.email = email;
+		this.age = age;
+		this.image = image;
+		this.sexe = sexe;
+		this.ville = ville;
+		this.departement = departement;
+		this.password = password;
+	}
+
 	public UserDto(long id, String name, String email, int age, String image, String sexe, String ville,
 			int departement, String role, List<Theme> themes, List<Message> messages, Channel userChannel,
 			Friends userFriend, List<Friends> friends) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.username = name;
 		this.email = email;
 		this.age = age;
 		this.image = image;
@@ -66,7 +84,7 @@ public class UserDto {
 			String role) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.username = name;
 		this.email = email;
 		this.age = age;
 		this.image = image;
@@ -84,12 +102,12 @@ public class UserDto {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String name) {
+		this.username = name;
 	}
 
 	public String getEmail() {
@@ -186,6 +204,14 @@ public class UserDto {
 
 	public void setFriends(List<Friends> friends) {
 		this.friends = friends;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }

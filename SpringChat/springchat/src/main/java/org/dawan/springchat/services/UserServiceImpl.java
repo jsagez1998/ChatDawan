@@ -11,9 +11,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Service
 @Transactional
+@CrossOrigin(origins="http://localhost:3000/")
+@RequestMapping(value="/users")
 public class UserServiceImpl implements UserService {
 
 	@Autowired

@@ -88,12 +88,12 @@ public class Users {
 	}
 
 	public Users() {
-		
+		super();
 	}
 	
 	public Users(long id, String username, String email, int age, String image, String sexe, String ville, int departement,
 			String role,String password,int enabled) {
-		
+		super();
 		this.id = id;
 		this.username= username;
 		this.email = email;
