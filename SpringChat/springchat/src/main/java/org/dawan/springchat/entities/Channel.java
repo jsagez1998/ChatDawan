@@ -26,15 +26,15 @@ public class Channel {
 	@Column(nullable = false)
 	private int nbPlace;
 	
-	@JsonBackReference
+	//@JsonBackReference
 	@OneToMany(mappedBy = "userChannel")
 	private List<Users> chanUsers;
 	
-	@JsonBackReference
+	//@JsonBackReference
 	@ManyToMany
 	private List<Theme> chanTheme ;
 	
-	@JsonBackReference
+	//@JsonBackReference
 	@OneToMany(mappedBy = "channel")
 	private List<Message> chanMessages;
 

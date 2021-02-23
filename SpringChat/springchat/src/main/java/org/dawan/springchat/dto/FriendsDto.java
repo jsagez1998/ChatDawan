@@ -2,12 +2,16 @@ package org.dawan.springchat.dto;
 
 import org.dawan.springchat.entities.Users;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 public class FriendsDto {
 	
 	private long id;
 	
+	@JsonBackReference
 	private Users userId;
 	
+	@JsonBackReference
 	private Users friendUser;
 
 	public FriendsDto(long id) {

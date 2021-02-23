@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import org.dawan.springchat.entities.Channel;
 import org.dawan.springchat.entities.Users;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 public class MessageDto {
 	
 	private long id;
@@ -15,8 +17,10 @@ public class MessageDto {
 	
 	private String pieceJointe;
 	
+	@JsonBackReference
 	private Users user;
 	
+	@JsonBackReference
 	private Channel channel;
 
 	

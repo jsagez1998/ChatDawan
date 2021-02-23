@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins="http://localhost:3000/",maxAge = 3600,allowedHeaders = "*")
@@ -37,8 +38,9 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
-	@PostMapping(value="/addUser",consumes= {"application/json"}, produces = {"application/json"})
-	public UserDto addUser(@Validated @RequestBody UserDto uDto) {
+	@ResponseBody
+	@PostMapping(value="/addUser",consumes= "application/json", produces = "application/json")
+	public UserDto addUser(@RequestBody UserDto uDto) {
 		return userService.saveOrUpdate(uDto);
 	}
 	

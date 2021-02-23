@@ -6,6 +6,8 @@ import org.dawan.springchat.entities.Message;
 import org.dawan.springchat.entities.Theme;
 import org.dawan.springchat.entities.Users;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 public class ChannelDto {
 	
 	private long id;
@@ -14,10 +16,13 @@ public class ChannelDto {
 	
 	private int nbPlace;
 	
+	@JsonBackReference
 	private List<Users> chanUsers;
 	
+	@JsonBackReference
 	private List<Theme> chanTheme;
 	
+	@JsonBackReference
 	private List<Message> chanMessages;
 
 	public ChannelDto() {

@@ -25,11 +25,11 @@ public class Theme {
 	@Column(nullable = false , length = 400)
 	private String description;
 	
-	@JsonBackReference
+	//@JsonBackReference
 	@ManyToMany
 	private List<Users> users;
 	
-	@JsonBackReference
+	//@JsonBackReference
 	@ManyToMany(mappedBy = "chanTheme")
 	private List<Channel> themeChannel ;
 

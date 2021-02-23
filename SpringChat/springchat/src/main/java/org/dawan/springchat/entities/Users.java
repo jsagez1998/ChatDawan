@@ -48,20 +48,20 @@ public class Users {
 	@Column(nullable = false) // 0 = non 1 = oui
 	private String role;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@ManyToMany(mappedBy = "users", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Theme> themes;
 	
-	@JsonBackReference
-	@JsonManagedReference
+	//@JsonManagedReference
+	//@JsonBackReference
 	@OneToMany(mappedBy = "user", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Message> messages;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@ManyToOne
 	private Channel userChannel ;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToOne(mappedBy="userId",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Friends userFriend;
 	
@@ -69,7 +69,7 @@ public class Users {
 		this.role = role;
 	}
 
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Friends> friends;
 	
@@ -91,6 +91,21 @@ public class Users {
 		super();
 	}
 	
+	
+	public Users(String username, String email, int age, String image, String sexe, String ville, int departement,
+			String password, int enabled) {
+		super();
+		this.username = username;
+		this.email = email;
+		this.age = age;
+		this.image = image;
+		this.sexe = sexe;
+		this.ville = ville;
+		this.departement = departement;
+		this.password = password;
+		this.enabled = enabled;
+	}
+
 	public Users(long id, String username, String email, int age, String image, String sexe, String ville, int departement,
 			String role,String password,int enabled) {
 		super();

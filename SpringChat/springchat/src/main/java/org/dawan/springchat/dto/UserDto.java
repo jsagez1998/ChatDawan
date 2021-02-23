@@ -8,8 +8,12 @@ import org.dawan.springchat.entities.Friends;
 import org.dawan.springchat.entities.Message;
 import org.dawan.springchat.entities.Theme;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 public class UserDto implements Serializable{
 	
+	private static final long serialVersionUID = 91105982748561650L;
+
 	private long id ;
 	
 	private String username;
@@ -32,6 +36,7 @@ public class UserDto implements Serializable{
 	
 	private List<Theme> themes ;
 	
+	@JsonBackReference
 	private List<Message> messages;
 	
 	private Channel userChannel ;

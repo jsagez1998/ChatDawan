@@ -18,11 +18,11 @@ public class Friends {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@JsonBackReference
+	//@JsonBackReference
 	@OneToOne(orphanRemoval = true,cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Users userId;
 	
-	@JsonBackReference
+	//@JsonBackReference
 	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Users friendUser;
 	
