@@ -52,7 +52,6 @@ public class Users {
 	@ManyToMany(mappedBy = "users", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Theme> themes;
 	
-	//@JsonManagedReference
 	//@JsonBackReference
 	@OneToMany(mappedBy = "user", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Message> messages;
@@ -61,7 +60,7 @@ public class Users {
 	@ManyToOne
 	private Channel userChannel ;
 	
-	//@JsonManagedReference
+	//@JsonBackReference
 	@OneToOne(mappedBy="userId",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Friends userFriend;
 	
@@ -69,7 +68,7 @@ public class Users {
 		this.role = role;
 	}
 
-	//@JsonManagedReference
+	//@JsonBackReference
 	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Friends> friends;
 	

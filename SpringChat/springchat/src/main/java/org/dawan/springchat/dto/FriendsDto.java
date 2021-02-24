@@ -8,10 +8,9 @@ public class FriendsDto {
 	
 	private long id;
 	
-	@JsonBackReference
+
 	private Users userId;
 	
-	@JsonBackReference
 	private Users friendUser;
 
 	public FriendsDto(long id) {

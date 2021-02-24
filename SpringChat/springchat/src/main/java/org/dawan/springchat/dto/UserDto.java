@@ -36,7 +36,6 @@ public class UserDto implements Serializable{
 	
 	private List<Theme> themes ;
 	
-	@JsonBackReference
 	private List<Message> messages;
 	
 	private Channel userChannel ;

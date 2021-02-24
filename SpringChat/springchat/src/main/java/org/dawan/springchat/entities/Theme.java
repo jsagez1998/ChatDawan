@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -25,11 +26,11 @@ public class Theme {
 	@Column(nullable = false , length = 400)
 	private String description;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@ManyToMany
 	private List<Users> users;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@ManyToMany(mappedBy = "chanTheme")
 	private List<Channel> themeChannel ;
 

@@ -17,10 +17,8 @@ public class MessageDto {
 	
 	private String pieceJointe;
 	
-	@JsonBackReference
 	private Users user;
 	
-	@JsonBackReference
 	private Channel channel;
 
 	

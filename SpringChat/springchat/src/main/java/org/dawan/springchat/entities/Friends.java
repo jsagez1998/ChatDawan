@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Friends {
@@ -18,11 +19,11 @@ public class Friends {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@OneToOne(orphanRemoval = true,cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Users userId;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Users friendUser;
 	

@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Channel {
@@ -26,15 +27,15 @@ public class Channel {
 	@Column(nullable = false)
 	private int nbPlace;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@OneToMany(mappedBy = "userChannel")
 	private List<Users> chanUsers;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@ManyToMany
 	private List<Theme> chanTheme ;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@OneToMany(mappedBy = "channel")
 	private List<Message> chanMessages;
 
