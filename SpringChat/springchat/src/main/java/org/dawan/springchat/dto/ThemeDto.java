@@ -15,10 +15,8 @@ public class ThemeDto {
 	
 	private String description;
 	
-	@JsonBackReference
 	private List<Users> users;
 	
-	@JsonBackReference
 	private List<Channel> themeChannel;
 
 	public ThemeDto() {

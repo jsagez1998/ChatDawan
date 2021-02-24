@@ -1,5 +1,7 @@
 package org.dawan.springchat.controllers;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +21,11 @@ public class IndexController {
 	}
 	
 	@GetMapping(value="/home")
-	public ModelAndView home() {
+	public ModelAndView home(Principal principal) {
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("username", principal);
         modelAndView.setViewName("home.html");
+        
         return modelAndView;
 	}
 	

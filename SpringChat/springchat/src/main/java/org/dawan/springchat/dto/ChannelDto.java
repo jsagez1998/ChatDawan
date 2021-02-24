@@ -16,13 +16,10 @@ public class ChannelDto {
 	
 	private int nbPlace;
 	
-	@JsonBackReference
 	private List<Users> chanUsers;
 	
-	@JsonBackReference
 	private List<Theme> chanTheme;
 	
-	@JsonBackReference
 	private List<Message> chanMessages;
 
 	public ChannelDto() {

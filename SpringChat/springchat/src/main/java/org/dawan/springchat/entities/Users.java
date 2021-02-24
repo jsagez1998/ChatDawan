@@ -54,7 +54,6 @@ public class Users {
 	@ManyToMany(mappedBy = "users", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Theme> themes;
 	
-	//@JsonManagedReference
 	//@JsonBackReference
 	@OneToMany(mappedBy = "user", cascade= {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<Message> messages;
@@ -63,10 +62,18 @@ public class Users {
 	@ManyToOne
 	private Channel userChannel ;
 	
+<<<<<<< HEAD
+=======
+	//@JsonBackReference
+	@OneToOne(mappedBy="userId",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	private Friends userFriend;
+	
+>>>>>>> 6a8ad53fc7414eb4c6bba03460766d7b2799a31f
 	public void setRole(String role) {
 		this.role = role;
 	}
 
+<<<<<<< HEAD
 	 @JsonBackReference
 	 @ManyToMany
 	 @JoinTable(name="tbl_friends",
@@ -82,6 +89,11 @@ public class Users {
 	  inverseJoinColumns=@JoinColumn(name="personId")
 	 )
 	 private List<Users> friendOf;
+=======
+	//@JsonBackReference
+	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	private List<Friends> friends;
+>>>>>>> 6a8ad53fc7414eb4c6bba03460766d7b2799a31f
 	
 	@Column(nullable = false)
 	private String password;
