@@ -23,6 +23,13 @@ public class FriendsDto {
 		super();
 	}
 
+	public FriendsDto(long id, Users userId, Users friendUser) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.friendUser = friendUser;
+	}
+
 	public long getId() {
 		return id;
 	}

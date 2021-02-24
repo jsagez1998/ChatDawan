@@ -52,8 +52,7 @@ public class UserServiceImpl implements UserService {
 		List<Users> lc = userRepository.findByName(name);
 		List<UserDto> res = new ArrayList<UserDto>();
 		for (Users c : lc) {
-			res.add(new UserDto(c.getId(), c.getUsername(), c.getEmail(), c.getAge(), c.getImage(), c.getSexe(), c.getVille(), c.getDepartement(),
-					c.getRole()));
+			res.add(new UserDto(c.getUsername(), c.getEmail(), c.getAge(), c.getImage(), c.getSexe(), c.getVille(), c.getDepartement(), c.getPassword()));
 		}
 		return res;
 	}
@@ -98,7 +97,7 @@ public class UserServiceImpl implements UserService {
 		List<UserDto> res = new ArrayList<UserDto>();
 		for (Users c : lc) {
 			res.add(new UserDto(c.getId(), c.getUsername(), c.getEmail(), c.getAge(), c.getImage(), c.getSexe(), c.getVille(), c.getDepartement(),
-					c.getRole(),c.getThemes(),c.getMessages(),c.getUserChannel(),c.getUserFriend(),c.getFriends()));
+					c.getRole(),c.getThemes(),c.getMessages(),c.getUserChannel(), c.getFriendOf(),c.getFriends()));
 		}
 		return res;
 	}

@@ -60,11 +60,11 @@ public class Message {
 		this.username = this.user.getUsername();
 	}
 
-	//@JsonBackReference
+	@JsonBackReference
 	@ManyToOne
 	private Users user;
 	
-	//@JsonBackReference
+	@JsonBackReference
 	@ManyToOne
 	private Channel channel;
 

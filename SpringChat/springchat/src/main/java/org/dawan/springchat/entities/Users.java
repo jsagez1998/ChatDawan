@@ -9,10 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -61,17 +63,25 @@ public class Users {
 	@ManyToOne
 	private Channel userChannel ;
 	
-	//@JsonManagedReference
-	@OneToOne(mappedBy="userId",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	private Friends userFriend;
-	
 	public void setRole(String role) {
 		this.role = role;
 	}
 
-	//@JsonManagedReference
-	@OneToMany(mappedBy = "friendUser",cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	private List<Friends> friends;
+	 @JsonBackReference
+	 @ManyToMany
+	 @JoinTable(name="tbl_friends",
+	  joinColumns=@JoinColumn(name="personId"),
+	  inverseJoinColumns=@JoinColumn(name="friendId")
+	 )
+	 private List<Users> friends;
+
+	 @JsonBackReference
+	 @ManyToMany
+	 @JoinTable(name="tbl_friends",
+	  joinColumns=@JoinColumn(name="friendId"),
+	  inverseJoinColumns=@JoinColumn(name="personId")
+	 )
+	 private List<Users> friendOf;
 	
 	@Column(nullable = false)
 	private String password;
@@ -106,11 +116,14 @@ public class Users {
 		this.enabled = enabled;
 	}
 
-	public Users(long id, String username, String email, int age, String image, String sexe, String ville, int departement,
-			String role,String password,int enabled) {
+	
+
+	public Users(long id, String username, String email, int age, String image, String sexe, String ville,
+			int departement, String role, List<Theme> themes, List<Message> messages, Channel userChannel,
+			List<Users> friends, List<Users> friendOf, String password, int enabled) {
 		super();
 		this.id = id;
-		this.username= username;
+		this.username = username;
 		this.email = email;
 		this.age = age;
 		this.image = image;
@@ -118,8 +131,13 @@ public class Users {
 		this.ville = ville;
 		this.departement = departement;
 		this.role = role;
+		this.themes = themes;
+		this.messages = messages;
+		this.userChannel = userChannel;
+		this.friends = friends;
+		this.friendOf = friendOf;
 		this.password = password;
-		this.enabled=enabled;
+		this.enabled = enabled;
 	}
 
 	public Channel getUserChannel() {
@@ -130,13 +148,7 @@ public class Users {
 		this.userChannel = userChannel;
 	}
 
-	public List<Friends> getFriends() {
-		return friends;
-	}
-
-	public void setFriends(List<Friends> friends) {
-		this.friends = friends;
-	}
+	
 
 	public List<Message> getMessages() {
 		return messages;
@@ -229,15 +241,22 @@ public class Users {
 	public void setDepartement(int departement) {
 		this.departement = departement;
 	}
+	
 
-
-
-	public Friends getUserFriend() {
-		return userFriend;
+	public List<Users> getFriends() {
+		return friends;
 	}
 
-	public void setUserFriend(Friends userFriend) {
-		this.userFriend = userFriend;
+	public void setFriends(List<Users> friends) {
+		this.friends = friends;
+	}
+
+	public List<Users> getFriendOf() {
+		return friendOf;
+	}
+
+	public void setFriendOf(List<Users> friendOf) {
+		this.friendOf = friendOf;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package org.dawan.springchat.listener;
 
-import org.dawan.springchat.entities.ChatMessage;
+//import org.dawan.springchat.entities.ChatMessage;
 import org.dawan.springchat.entities.Message;
 import org.dawan.springchat.entities.Users;
 import org.slf4j.Logger;
@@ -26,7 +26,7 @@ public class WebSocketEventListener {
 		 logger.info("Recieved a new web socket connection");
 	 }
 	 
-	 @EventListener
+	 /**@EventListener
 	 public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
 		 StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 		 String username = (String) headerAccessor.getSessionAttributes().get("username");
@@ -40,5 +40,5 @@ public class WebSocketEventListener {
 			 
 			 messagingTemplate.convertAndSend("/topic/public",chatMessage);
 		 }
-	 }
+	 }**/
 }

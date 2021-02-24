@@ -23,12 +23,13 @@ public class FriendsServiceImpl implements FriendsService {
 	
 	@Override
 	public List<UserDto> findByUserId(int id) {
-		List<Friends> lu = friendsRepository.findByUserId(id);
-		List<UserDto> res = new ArrayList<UserDto>();
-		for (Friends f : lu) {
-			res.add(userServiceImpl.findById(f.getFriendUser().getId()));
-		}
-		return res;
+//		List<Friends> lu = friendsRepository.findByUserId(id);
+//		List<UserDto> res = new ArrayList<UserDto>();
+//		for (Friends f : lu) {
+//			res.add(userServiceImpl.findById(f.getFriendUser().getId()));
+//		}
+//		return res;
+		return null;
 	}
 
 	@Override

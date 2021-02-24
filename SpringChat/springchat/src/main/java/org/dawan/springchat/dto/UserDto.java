@@ -7,6 +7,7 @@ import org.dawan.springchat.entities.Channel;
 import org.dawan.springchat.entities.Friends;
 import org.dawan.springchat.entities.Message;
 import org.dawan.springchat.entities.Theme;
+import org.dawan.springchat.entities.Users;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -41,10 +42,9 @@ public class UserDto implements Serializable{
 	
 	private Channel userChannel ;
 	
-	private Friends userFriend;
-	
-	private List<Friends> friends;
+	private List<Users> friends;
 
+	private List<Users> friendOf;
 	
 	
 
@@ -62,8 +62,7 @@ public class UserDto implements Serializable{
 	}
 
 	public UserDto(long id, String name, String email, int age, String image, String sexe, String ville,
-			int departement, String role, List<Theme> themes, List<Message> messages, Channel userChannel,
-			Friends userFriend, List<Friends> friends) {
+			int departement, String role, List<Theme> themes, List<Message> messages, Channel userChannel, List<Users> friends, List<Users> friendOf) {
 		super();
 		this.id = id;
 		this.username = name;
@@ -77,8 +76,8 @@ public class UserDto implements Serializable{
 		this.themes = themes;
 		this.messages = messages;
 		this.userChannel = userChannel;
-		this.userFriend = userFriend;
 		this.friends = friends;
+		this.friendOf = friendOf;
 	}
 
 	public UserDto() {
@@ -195,19 +194,11 @@ public class UserDto implements Serializable{
 		this.userChannel = userChannel;
 	}
 
-	public Friends getUserFriend() {
-		return userFriend;
-	}
-
-	public void setUserFriend(Friends userFriend) {
-		this.userFriend = userFriend;
-	}
-
-	public List<Friends> getFriends() {
+	public List<Users> getFriends() {
 		return friends;
 	}
 
-	public void setFriends(List<Friends> friends) {
+	public void setFriends(List<Users> friends) {
 		this.friends = friends;
 	}
 
@@ -218,5 +209,14 @@ public class UserDto implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public List<Users> getFriendOf() {
+		return friendOf;
+	}
+
+	public void setFriendOf(List<Users> friendOf) {
+		this.friendOf = friendOf;
+	}
+	
 	
 }
